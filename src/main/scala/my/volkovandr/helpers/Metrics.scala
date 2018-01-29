@@ -1,4 +1,4 @@
-package my.volkovandr
+package my.volkovandr.helpers
 
 import io.prometheus.client.exporter.HTTPServer
 
@@ -15,5 +15,4 @@ trait Metrics {
         prometheusHttpServer.stop()
         prometheusHttpServer = null
       }
-
 }

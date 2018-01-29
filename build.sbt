@@ -13,4 +13,5 @@ libraryDependencies ++= Seq(
   "com.typesafe" % "config" % "1.3.2",
   "io.prometheus" % "simpleclient" % "0.1.0",
   "io.prometheus" % "simpleclient_httpserver" % "0.1.0",
+  "org.scalaj" %% "scalaj-http" % "2.3.0"
 )

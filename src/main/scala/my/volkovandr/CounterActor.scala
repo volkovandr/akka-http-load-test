@@ -1,15 +1,17 @@
 package my.volkovandr
 
 import akka.actor.Actor
+import io.prometheus.client
 import my.volkovandr.Server.CountMessage
 
-class Counter extends Actor {
+class CounterActor extends Actor {
   var counter: Int = 0
+  var counterMetric: client.Counter = _
   def receive(): PartialFunction[Any, Unit] = {
     case "inc" =>
-      //Thread.sleep(3000)
       sender() ! CountMessage(counter)
-      //println(s"sent $counter")
       counter += 1
+      counterMetric.inc()
+    case m: client.Counter => counterMetric = m
   }
 }
